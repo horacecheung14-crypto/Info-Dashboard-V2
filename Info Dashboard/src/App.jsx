@@ -164,7 +164,16 @@ const App = () => {
             <CloudRain className="w-4 h-4 mr-1 text-blue-500" /> 天文台 256 公里雷達圖
           </h2>
           <div className="rounded-xl overflow-hidden bg-slate-100/50 aspect-square flex items-center justify-center border border-slate-100">
-            <img src={radarUrl} alt="雷達圖載入中" className="w-full h-full object-contain mix-blend-multiply" />
+            <img 
+  src={radarUrl} 
+  alt="雷達圖載入中" 
+  className="w-full h-full object-contain mix-blend-multiply"
+  referrerPolicy="no-referrer"
+  onError={(e) => { 
+    e.target.onerror = null; 
+    e.target.src = 'https://www.hko.gov.hk/wxinfo/radars/radar_256.png'; 
+  }}
+/>
           </div>
         </div>
 
